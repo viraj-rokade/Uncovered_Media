@@ -21,16 +21,21 @@
             <label for="lastname">Last Name</label>
             <input type="text" name="lastname" placeholder="Enter your lastname Name"><br>
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Enter your Password"><br>
+            <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter your Password"><br>
+            <label for="confirmpassword">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirmpassword" placeholder="RE-Enter your Password" on><br>
             <label for="email">Email</label>
             <input type="email" name="email" placeholder="Enter your Email"><br>
             <label for="phoneno">Phone Number</label>
             <input type="tel" name="phoneno" placeholder="Enter your Phone number"><br>
+            <label for="date">Date</label>
             <input type="date" name="date" placeholder="Enter today's date"><br>
             <input type="submit" value="Submit"> &nbsp; <input type="reset" value="Reset">
         </form>
         
         
-        <script src="" async defer></script>
+        <script src="password.js" >
+        
+        </script>
     </body>
 </html>
