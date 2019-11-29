@@ -24,11 +24,28 @@
         <input type="file" name="pic" accept="image/*"><br>
         <label for="tags">Tags</label>
         <input type="text" name="tags" placeholder="Enter your Tags"><br>
+        <label for="location">Current location</label>
+        <button onclick="getLocation()">Location</button><br>
+        <input type="text" id="latitude"><br>
+        <input type="text" id="longitude"><br>
         <label for="date">Date</label>
         <input type="date" name="date" placeholder="Enter the Date"><br>
         <label for="time">Time</label>
         <input type="time" name="time" placeholder="Enter the time"><br>
         <input type="submit" value="Submit"> &nbsp; <input type="reset" value="Reset">
-        <script src="" async defer></script>
+        <script>
+        function getLocation() {
+        if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(showPosition);
+        } 
+        else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+    function showPosition(position) {
+     document.getElementById("latitude").value=position.coords.latitude
+     document.getElementById("longitude").value=position.coords.longitude;
+    }</script>
     </body>
 </html>
