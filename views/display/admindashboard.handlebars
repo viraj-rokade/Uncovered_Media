@@ -1,0 +1,87 @@
+<!-- SIDEBAR -->
+
+
+<!-- NAVBAR -->
+
+		<div class="container1">
+
+<div class="row">
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 logo">
+	{{!-- <div class="logo"> --}}
+				<span class="logo-title">UNCOVERED MEDIA</span>
+			{{!-- </div> --}}
+</div>
+<div class="col-lg-8 col-md-12 col-sm-12 col-12">
+  		<nav>
+				<ul>
+				
+					<li>
+                   
+                          <a href="/logoutadmin">Logout</a>
+                        
+                       
+                        
+                        </li>
+				</ul>
+			</nav>
+</div>
+
+</div>
+            
+		  
+
+	
+
+		</div>
+
+
+
+<div class="container3">
+<br><br><br>
+  <table border=3>
+<tr class = "num button contacts">
+    <th>Title</th>
+    <th>No of Views</th> 
+    <th>Reported</th>
+    <th>Threshold</th>
+    <th>Take Action</th>
+</tr>
+{{#each callData}}
+<tr class = 'num'>
+    <td>{{this.title}}</td>
+    <td>{{this.views}}</td>
+    <td>{{this.reported}}</td>
+    <td>{{this.threshold}}</td>
+    <td><a href="/takeaction/{{this.post_id}}">View and Take Action</a></td>
+</tr>
+{{/each}}
+</table>
+
+{{#if error}}
+<span id="err_msg" hidden>{{error}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err_msg").innerText;
+    window.alert(x)
+    window.location.href = '/admindashboard';
+</script>
+{{/if}}	
+
+{{#if actionSuc}}
+<span id="msg" hidden>{{actionSuc}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("msg").innerText;
+    window.alert(x)
+    window.location.href = '/admindashboard';
+</script>
+{{/if}}	
+
+</div>
+
+
+
+
+
+
+
+
+
