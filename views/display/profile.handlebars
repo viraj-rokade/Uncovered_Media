@@ -1,0 +1,442 @@
+
+  
+
+
+
+
+
+<div class="mainContainer">
+
+
+
+
+<!-- NAVBAR -->
+
+		<div class="container1">
+
+<div class="row">
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 logo">
+	{{!-- <div class="logo"> --}}
+				<span class="logo-title">UNCOVERED MEDIA</span>
+			{{!-- </div> --}}
+</div>
+<div class="col-lg-8 col-md-6 col-sm-12 col-12">
+  		<nav>
+				<ul>
+					<li><a href="/home" >Home</a></li>
+					<li><a href="/fastfacts">FAQ</a></li>
+					<li><a href="/profile" class = "activeNav">Profile</a></li>
+					<li>
+                   
+                          <a href="/logout" onclick="/logout">Logout</a>
+                        
+                       
+                        
+                        </li>
+				</ul>
+			</nav>
+</div>
+
+</div>
+            
+		  
+
+	
+
+		</div>
+ 
+
+<!-- MODAL PROMPT -->
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+       <span class="close">&times;</span>
+    
+    <p style="color: black;">Please select what kind of post you would like to create? <br> </p>
+
+    <form method="POST" action="/okmodal">
+    <select name="postTypeSelect" class = "newButt inp2">
+    <option value="post">Story</option>
+    <option value="event" >Event</option>
+    <option value="pet">Petition</option>
+    <option value="emg">Emergency</option>
+    </select>
+<br><br>
+
+   
+   <input type="submit" class = "newButt inp2 glimpse" style = "margin: 0 auto;" value="GO!">
+
+   </form>
+   </div>
+  </div>
+
+{{!-- </div> --}}
+
+
+  
+    
+
+<!-- CONTENT -->
+
+	<div class="container2">
+    
+        <div class="row">
+        
+
+          
+
+           
+          <div class="col-lg-8 col-md-12 col-sm-12">
+              {{#each displayData}}
+             {{#eq this.type 'POST'}}
+            <div class="content newButt postContent">
+              <div class="avatar">
+               {{#if this.image}}
+                {{#if this.ano}}
+                <img src = "https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class = "avatarPic">
+                {{else}}
+                <img src = "/public/user_crucial_data/user_images/{{this.image}}" class = "avatarPic">
+                 {{/if}}
+                {{else}}
+                <img src = "https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class = "avatarPic">
+                {{/if}}
+                {{!-- <div class="verticalLine"></div> --}}
+                {{!-- <span class = "typePost"><br>{{this.type}}</span> --}}
+                
+              </div>
+
+
+              <div class="mainContent">
+                <span class = "typeOfPost posts">
+                  Story
+                </span>
+                <br>
+                <span class="titleOfPost">
+                  {{this.title}}
+                </span>
+                <br>
+                <span class = "author">
+                {{this.date}}, {{this.time}}
+                </span>
+                <br>
+                <span class = "reactions">
+                  <i class="fas fa-thumbs-up like" title = "LIKES"> <span class="num1">{{this.likes.length}} Likes </span></i>
+                              <i class="fas fa-times-circle fake" title = "REPORTED AS FAKE"><span class="num1">{{this.fake.length}} Fake </span></i>
+                              <i class="fas fa-flag flag" title = "REPORTED AS SPAM "><span class="num1">{{this.spam.length}} Spam </span></i>
+                              <i class="fas fa-microphone-alt-slash hate" title = "REPORTED AS HATE SPEECH"><span class="num1">{{this.hate.length}} Hate Speech </span></i>
+                               <i class="fas fa-eye views" title = "VIEWS"><span class="num1">{{this.views}} Views </span></i>
+                </span>
+                {{!-- <br>
+                            <a href="/viewpost/{{this.creation_id}}" class="btn view post">VIEW STORY</a> --}}
+              </div>
+              <div class="side">
+                   <a href="/viewpost/{{this.creation_id}}" class="posts"><i class="fas fa-chevron-circle-right read2" title = "Read More"><br></i> <br> </a>
+                 
+                  <a href="/profile/post/delete/{{this.creation_id}}" class="posts"><i class="fas fa-trash-alt read2" title = "Delete"><br></i> <br> </a>
+              </div>
+
+            </div>
+          {{/eq}}
+
+
+           {{#eq this.type 'EVENT'}}
+              <div class="content newButt eventContent">
+              <div class="avatar">
+                {{#if this.image}}
+                <img src = "/public/user_crucial_data/user_images/{{this.image}}" class = "avatarPic">
+                {{else}}
+                <img src = "https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class = "avatarPic">
+                {{/if}}
+                {{!-- <div class="verticalLine"></div> --}}
+                {{!-- <span class = "typePost"><br>{{this.type}}</span> --}}
+                
+              </div>
+
+
+              <div class="mainContent">
+                <span class = "typeOfPost events">
+                  {{this.type}}
+                </span>
+                <br>
+                <span class="titleOfPost">
+                  {{this.title}}
+                </span>
+                <br>
+                <span class = "author">
+                {{this.date}}, {{this.time}}
+                </span>
+                <br>
+                <span class = "reactions">
+                     <i class="fas fa-users attending" title = "PEOPLE ATTENDING"> <span class="num1">{{this.people}} Attending </span></i>
+                              <i class="fas fa-eye views" title = "VIEWS"><span class="num1">{{this.views}} Views </span></i>
+                </span>
+                {{!-- <br>
+                             <a href="/viewevent/{{this.creation_id}}" class="btn view event">VIEW</a> --}}
+              </div>
+              <div class="side">
+                   <a class = "events" href="/viewevent/{{this.creation_id}}"><i class="fas fa-chevron-circle-right read2 " title = "Read More"></i></a>
+                
+                  <a class = "events" href="/profile/event/delete/{{this.creation_id}}"><i class="fas fa-trash-alt read2" title = "Delete"><br></i> <br> </a>
+              </div>
+
+            </div>
+
+           {{/eq}}
+
+          {{#eq this.type 'PETITION'}}  
+             <div class="content newButt petContent">
+              <div class="avatar">
+                {{#if this.image}}
+                <img src = "/public/user_crucial_data/user_images/{{this.image}}" class = "avatarPic">
+                {{else}}
+                <img src = "https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class = "avatarPic">
+                {{/if}}
+                {{!-- <div class="verticalLine"></div> --}}
+                {{!-- <span class = "typePost"><br>{{this.type}}</span> --}}
+                
+              </div>
+
+
+              <div class="mainContent">
+                <span class = "typeOfPost pets">
+                  {{this.type}}
+                </span>
+                <br>
+                <span class="titleOfPost">
+                  {{this.title}}
+                </span>
+                <br>
+                <span class = "author">
+                  
+                {{this.date}}, {{this.time}}
+                </span>
+                <br>
+                <span class = "reactions">
+                  <i class="fas fa-signature" title = "SIGNATURES RECEIVED"> <span class="num1">{{this.signs}} Signatures</span></i>
+                  <i class="fas fa-eye views" title = "VIEWS"><span class="num1">{{this.views}} Views </span></i>
+                </span>
+                {{!-- <br> --}}
+                       {{!-- <a href="/viewpet/{{this.creation_id}}" class="btn view petitions">VIEW PETITION</a> --}}
+              </div>
+
+              <div class="side">
+                <a class = "pets" href="/viewpet/{{this.creation_id}}"><i class="fas fa-chevron-circle-right read2" title = "Read More"></i></a>
+                
+                   <a class = "pets" href="/profile/pet/delete/{{this.creation_id}}"><i class="fas fa-trash-alt read2" title = "Delete"><br></i> <br> </a>
+                  <br>
+              </div>
+
+            </div>
+
+          {{/eq}}
+
+            {{#eq this.type 'EMERGENCY'}}  
+               <div class="content newButt emerContent">
+              <div class="avatar">
+                {{#if this.image}}
+                <img src = "/public/user_crucial_data/user_images/{{this.image}}" class = "avatarPic">
+                {{else}}
+                <img src = "https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class = "avatarPic">
+                {{/if}}
+                {{!-- <div class="verticalLine"></div> --}}
+                {{!-- <span class = "typePost"><br>{{this.type}}</span> --}}
+                
+              </div>
+
+
+              <div class="mainContent">
+                <span class = "typeOfPost emergs">
+                  {{this.type}}
+                </span>
+                <br>
+                <span class="titleOfPost">
+                  {{this.title}}
+                </span>
+                <br>
+                <span class = "author">
+                {{this.u_fname}} {{this.viewEmgData.u_lname}}
+                {{this.date}}, {{this.time}}
+                </span>
+                <br>
+                <span class = "reactions">
+                  <i class="fas fa-hands-helping help" title = "PEOPLE INTERESTED TO HELP"> <span class="num1">{{this.people}} Helping </span></i>
+                  <i class="fas fa-eye views" title = "VIEWS"><span class="num1">{{this.views}} Views </span></i>
+                </span>
+                <br>
+                        {{!-- <a href="/viewemg/{{this.creation_id}}" class="btn view emer">VIEW EMERGENCY</a> --}}
+              </div>
+
+              <div class="side ">
+                 <a class= "emergs" href="/viewemg/{{this.creation_id}}"> <i class="fas fa-chevron-circle-right read2" title = "Read More"></i></a><br>
+              
+                  <a class = "emergs" href="/profile/emg/delete/{{this.creation_id}}"><i class="fas fa-trash-alt read2" title = "Delete"><br></i> <br> </a>
+              </div>
+
+            </div>
+            {{/eq}}
+
+
+                  {{/each}}
+          </div>
+          
+<!--PROFILE -->
+
+
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                 <div class="newButt postSomething" id="myBtnModal">
+                   <span class = "pSome">Post Something... </span>
+                   <br><br>
+                   <span class = "pText">Englighten the world with some unknown stories, events, petitions or emergencies…</span>
+
+              </div>
+              <br><br>
+              <div class="newButt postSomething">
+  
+
+{{#if userDetails.profile_img_name}}
+<img class="profilePic" src="/public/user_crucial_data/user_images/{{userDetails.profile_img_name}}" class = "avatarPic" alt="Profile Photo" style="color: black;">
+{{else}}
+ <img src = "https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class = "avatarPic" alt = "Profile Photo" style = "display: block;margin-left: auto;margin-right: auto;">
+{{/if}}
+<div class = "titleOfPost profileName">
+{{userDetails.f_name}} {{userDetails.l_name}} <br>
+   </div>
+<br>
+<span class = "descCon profileCon">
+<i class="fas fa-envelope people" title = "Email ID"></i> {{userDetails.email_id}} <br>
+</span>
+<span class = "descCon profileCon">
+  <i class="fas fa-phone people" title = "Phone No."></i> {{userDetails.phone_no}} <br>
+</span>
+
+
+<span class = "descCon profileCon">
+  <i class="fas fa-map-marked-alt people" title = "Address"></i>
+  
+  {{#if userDetails.address}}
+   {{userDetails.address}}, {{userDetails.city}}, {{userDetails.state}},  {{userDetails.country}}, {{userDetails.zip}}
+   {{else}}
+   N/A 
+   {{/if}}
+</span> <br>
+
+<span class = "descCon profileCon">
+
+  <i class="fas fa-birthday-cake people" title = "D.O.B"></i>
+
+  {{#if userDetails.dob}}
+  {{userDetails.dob}}
+  {{else}}
+   N/A 
+  {{/if}}
+
+</span> <br>
+
+<span class="descCon profileCon">
+  <i class="fas fa-venus-mars people" title = "Gender"></i>
+  {{#if userDetails.gender}}
+  {{userDetails.gender}}
+  {{else}}
+  N/A 
+  {{/if}}
+</span><br>
+
+<span class="descCon profileCon">
+  <i class="fas fa-exclamation-circle emergs" title = "Warnings"></i>
+   {{userDetails.warnings}} Warnings <br> 
+   <span class = "pText" style="letter-spacing: 0px; font-size: 1.0rem; line-height: 1.0rem;">(3 Warnings would ban the account!)</span>
+</span> <br><br>
+
+<div class = "titleOfPost profileName">
+<a href="/updateprofile" class= "people">EDIT PROFILE</a>
+ <br>
+   </div>
+
+{{!-- 
+   <p><span class = "btn button button-block emer">WARNINGS: {{userDetails.warnings}}</span> </p>
+    <p><span class = "contacts">NAME</span> {{userDetails.f_name}} {{userDetails.l_name}}</p>
+    <p><span class = "contacts">EMAIL</span> {{userDetails.email_id}}</p>
+    <p><span class = "contacts">PHONE</span> {{userDetails.phone_no}}</p>
+    <p><span class = "contacts">ADDRESS</span> {{userDetails.address}}</p>
+    <p><span class = "contacts">CITY</span> {{userDetails.city}}</p>   
+    <p><span class = "contacts">STATE</span> {{userDetails.state}}</p>
+    <p><span class = "contacts">COUNTRY</span> {{userDetails.country}}</p>
+    <p><span class = "contacts">ZIP</span> {{userDetails.zip}}</p>
+    <p><span class = "contacts">DOB</span> {{userDetails.dob}}</p>
+    <p><span class = "contacts">SEX</span> {{userDetails.gender}}</p> --}}
+   
+ 
+
+    {{#if error}}
+<span id="err_msg" hidden>{{error}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err_msg").innerText;
+    window.alert(x)
+    window.location.href = '/updateprofile';
+</script>
+{{/if}}	
+
+   {{#if error2}}
+<span id="err2_msg" hidden>{{error}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err2_msg").innerText;
+    window.alert(x)
+    window.location.href = '/profile';
+</script>
+{{/if}}
+
+{{#if postSucc}}
+<span id="succ_msg" hidden>{{postSucc}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("succ_msg").innerText;
+    window.alert(x)
+    window.location.href = '/profile';
+</script>
+{{/if}}
+</div>
+             
+                 
+
+              </div>
+              
+          </div>
+
+        </div>
+	</div>
+
+
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtnModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>

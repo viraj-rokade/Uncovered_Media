@@ -1,0 +1,85 @@
+
+
+<!-- NAVBAR -->
+
+		<div class="container1">
+
+<div class="row">
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 logo">
+	{{!-- <div class="logo"> --}}
+				<span class="logo-title">UNCOVERED MEDIA</span>
+			{{!-- </div> --}}
+</div>
+<div class="col-lg-8 col-md-12 col-sm-12 col-12">
+  		<nav>
+				<ul>
+				
+					<li>
+                   
+                          <a href="/logoutadmin">Logout</a>
+                        
+                       
+                        
+                        </li>
+				</ul>
+			</nav>
+</div>
+
+</div>
+            
+		  
+
+	
+
+		</div>
+
+<div class="container3 newButt">
+
+        <span class="contacts" >AUTHOR</span> <span class = "descCon">{{displayData.name}}</span> <br>
+       
+        <span class="contacts" >TITLE</span> <span class = "descCon">{{displayData.title}}<br></span>
+       <span class="contacts" >DESCRIPTION</span> <span class = "descCon"> {{displayData.description}}<br></span>
+      <span class="contacts" >TAGS</span> <span class = "descCon">{{displayData.tags}}<br></span>
+       <span class="contacts" >IMAGES</span><br></p> 
+        {{#each displayData.images}}
+        <img src="/public/user_crucial_data/posts_images/{{this}}" width="150px" height="150px"><br>
+        {{/each}}
+        <br>
+        <span class="contacts">CURRENT WARNINGS</span> <span class = "descCon">{{displayData.warnings}}<br></span>
+<br>
+        <form id="selectaction" method="post" action="/actionprocess">
+        <div class="field-wrap">
+          <span class = "descCon">Select Action:</span>
+            <select name="action">
+                <option value="1" name="none" id="none">None</option>
+                <option value="2" name="sendWarning" id="sendWarning">Send Warning</option>
+                <option value="3" name="Ban User" id="">Ban User</option>
+                <option value="4" name="keepPost">Keep Post</option>
+            </select><br>
+        </div>
+            <input type="text" id="post_id" name="post_id" value="{{displayData.post_id}}" hidden>
+            <input type="text" id= "user_id" name="user_id" value="{{displayData.user_id}}" hidden>
+            
+            <button id="takeAction" class= "button button-block newButt glimpse" name="takeAction" type="submit">TAKE ACTION</button></td>
+        </form>
+
+{{#if error}}
+<span class="contacts" id="err_msg" hidden>{{error}}</span>
+<span class="contacts" id="idField" hidden>{{displayData.post_id}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err_msg").innerText;
+  var id = document.getElementById("idField").innerText;
+    window.alert(x)
+    window.location.href = '/takeaction/'+id;
+</script>
+{{/if}}	
+
+</div>
+
+
+
+
+
+
+
+        

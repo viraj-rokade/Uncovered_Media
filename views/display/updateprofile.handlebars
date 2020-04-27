@@ -1,0 +1,143 @@
+<div class="mainContainer">
+
+
+
+<!-- NAVBAR -->
+
+		<div class="container1 bgPost">
+
+<div class="row">
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 logo">
+	{{!-- <div class="logo"> --}}
+				<span class="logo-title">UNCOVERED MEDIA</span>
+			{{!-- </div> --}}
+</div>
+<div class="col-lg-8 col-md-6 col-sm-12 col-12">
+  		<nav>
+				<ul>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/fastfacts">FAQ</a></li>
+					<li><a href="/profile" class = "activeNav">Profile</a></li>
+					<li>
+                   
+                          <a href="/logout" onclick="/logout">Logout</a>
+                        
+                       
+                        
+                        </li>
+				</ul>
+			</nav>
+</div>
+
+</div>
+            
+		  
+
+	
+
+		</div>
+  
+
+
+
+<div class="newButt profileContent container3">
+
+  
+  <form id="upd_profile" action="/updateprofile" method="post"  enctype="multipart/form-data">
+     <h1 style = "letter-spacing: 5px; margin-bottom: 1%; color: #ff8000">UPDATE PROFILE </h1>
+  <br>
+        
+
+  <div class="field-wrap">
+   
+        <input class = "newButt inp2 inpPr" type="text" id="addr" name="address" required placeholder="STREET ADDRESS *">
+  </div>
+   <div class="field-wrap">
+
+        <input class = "newButt inp2 inpPr" type="text" id='city' name="city" required placeholder="CITY *">
+  </div>
+   <div class="field-wrap">
+      
+        <input class = "newButt inp2 inpPr" type="text" id='state' name="state" required placeholder="STATE *">
+  </div>
+   <div class="field-wrap">
+    
+        <input class = "newButt inp2 inpPr" type="text" id='country' name="country" required placeholder="COUNTRY *">
+  </div>
+   <div class="field-wrap">
+ 
+        <input class = "newButt inp2 inpPr" type="tel" minlength="5" maxlength="6" id="zip" name="zip" required placeholder="ZIP *">
+  </div>
+   <div class="field-wrap">
+
+        <div class="newButt inp2 inpPr">
+          <div class="pAnon">
+            DATE OF BIRTH *
+          </div>
+          <div class="pOption1 ">
+          <input type="date" id='dob' class = "newButt"  name="dob" style = "border: 1px solid #ff8000;" required>
+          </div>
+
+        </div>
+  </div>
+
+   <div class="field-wrap">
+
+             <div class="newButt inp2 inpPr">
+          <div class="pAnon">
+            GENDER *
+          </div>
+          <div class="pOption1">
+         <select id = "sex" name="gender" class ="newButt">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+          </div>
+
+        </div>
+
+  </div>
+   <div class="field-wrap">
+
+         <div class="newButt inp2 inpPr">
+           <div class="pAnon">
+        UPLOAD NEW PROFILE PICTURE
+      </div>
+      <div class="pOption1">
+   <input type="file" id="image" name="image"  accept="image/*">
+      </div>
+      </div>
+
+  </div>
+        
+       
+        
+        <div class="field-wrap">
+          <input type="submit" class="button button-block newButt glimpse" style="margin: 0 auto;" value="Update">
+        </div>
+        
+</form>
+
+
+{{#if error}}
+<span id="err_msg" hidden>{{error}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err_msg").innerText;
+    window.alert(x)
+    window.location.href = '/updateprofile';
+</script>
+{{/if}}	
+
+{{#if postSucc}}
+<span id="succ_msg" hidden>{{postSucc}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("succ_msg").innerText;
+    window.alert(x)
+    window.location.href = '/profile';
+</script>
+{{/if}}
+</div>
+
+
+
+</div>

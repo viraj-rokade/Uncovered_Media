@@ -1,0 +1,128 @@
+<div class="mainContainer4">
+
+  
+
+	<!-- NAVBAR -->
+		<div class="container1 bgPost">
+
+<div class="row">
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 logo">
+	{{!-- <div class="logo"> --}}
+				<span class="logo-title">UNCOVERED MEDIA</span>
+			{{!-- </div> --}}
+</div>
+<div class="col-lg-8 col-md-6 col-sm-12 col-12">
+  		<nav>
+				<ul>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/fastfacts">FAQ</a></li>
+					<li><a href="/profile">Profile</a></li>
+					<li>
+                   
+                          <a href="/logout" onclick="/logout">Logout</a>
+                        
+                       
+                        
+                        </li>
+				</ul>
+			</nav>
+</div>
+
+</div>
+            
+		  
+
+	
+
+		</div>
+
+
+<div class="container3 newButt viewEmer">
+
+
+   <div class="avatarPost">
+                {{#if userImg}}
+                <img src = "/public/user_crucial_data/user_images/{{userImg}}" class = "avatarPic">
+                {{else}}
+                <img src = "https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class = "avatarPic">
+                {{/if}}
+                
+              </div>
+  <div class="mainContentPost">
+    <span class = "typeOfPost emergs">
+      EMERGENCY
+    </span> <br>
+        <span class="titleOfPost">
+          {{viewEmgData.title}} 
+        </span><br>
+
+        <span class = "author">
+          - {{viewEmgData.u_fname}} {{viewEmgData.u_lname}}, {{viewEmgData.emg_created_date}} {{viewEmgData.emg_created_time}}
+
+        </span><br><br>
+
+
+
+  </div>
+<span class = "descCon">
+  {{viewEmgData.description}}
+</span> <br><br>
+
+
+<!-- IMAGES -->
+{{#if viewEmgData.image_name}}
+<div class="row">
+
+    {{#each imgArr}}
+     <div class="imagesSlid col-lg-6 col-md-6 col-sm-12">
+    <a href = "/public/user_crucial_data/emergency_images/{{this}}" target="_blank"><img src="/public/user_crucial_data/emergency_images/{{this}}" class="images"  alt="Emergency Image" title="CLICK TO OPEN IMAGE" style="color: black;"></a>
+     </div>
+    {{/each}}
+
+    
+    
+   </div>
+{{/if}}
+
+
+<!-- LINKS -->   
+
+{{#if viewEmgData.link}}
+<span class="descCon"><i class="fas fa-link emergs" title = "Link"></i><a href="{{viewEmgData.link}}" target="_blank"> {{viewEmgData.link}}</a></span> <br>
+{{/if}}
+
+<!-- LOCATION -->   
+{{#if viewEmgData.manual_location}}
+<span class="descCon"><i class="fas fa-map-marker-alt emergs" title = "Location"></i> {{viewEmgData.manual_location}} </span><br>
+{{/if}}
+
+    <!-- REACTIONS -->
+<span class="descCon">
+  <i class="fas fa-eye emergs" title = "VIEWS"></i> {{viewEmgData.views.length}} Views<br>
+</span>
+
+<span class="descCon">
+<i class="fas fa-hands-helping emergs" title = "HELPERS ATTENDING"></i>{{viewEmgData.helpers_attending.length}} Helping
+</span>
+
+<br><br>
+{{#if findId}}
+    <button class = "button button-block emer" onclick="window.location.href = '/viewemg/help/{{viewEmgData._id}}';">Not interested anymore?</button>
+    {{else}}
+    <button class = "button button-block emer" onclick="window.location.href = '/viewemg/help/{{viewEmgData._id}}';">Mark As Interested</button>
+{{/if}}
+
+    
+
+{{#if error}}
+<span id="err_msg" hidden>{{error}}</span>
+<span id="id_msg" hidden>{{id}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err_msg").innerText;
+  var id = document.getElementById("id_msg").innerText;
+    window.alert(x)
+    window.location.href = '/viewemg/'+id;
+</script>
+{{/if}}	
+</div>
+</div>

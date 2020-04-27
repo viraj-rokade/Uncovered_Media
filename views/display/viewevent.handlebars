@@ -1,0 +1,119 @@
+<div class="mainContainer3">
+  
+
+<!-- NAVBAR -->
+
+		<div class="container1 bgPost">
+
+<div class="row">
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 logo">
+	{{!-- <div class="logo"> --}}
+				<span class="logo-title">UNCOVERED MEDIA</span>
+			{{!-- </div> --}}
+</div>
+<div class="col-lg-8 col-md-6 col-sm-12 col-12">
+  		<nav>
+				<ul>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/fastfacts">FAQ</a></li>
+					<li><a href="/profile">Profile</a></li>
+					<li>
+                   
+                          <a href="/logout" onclick="/logout">Logout</a>
+                        
+                       
+                        
+                        </li>
+				</ul>
+			</nav>
+</div>
+
+</div>
+            
+		  
+
+	
+
+		</div>
+
+
+<div class="container3 newButt viewEvent">
+
+                <div class="avatarPost">
+               {{#if userImg}}
+                <img src = "/public/user_crucial_data/user_images/{{userImg}}" class = "avatarPic">
+                {{else}}
+                <img src = "https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png" class = "avatarPic">
+                {{/if}}
+                
+              </div>
+              <div class="mainContentPost">
+                <span class = "typeOfPost events">
+                  Event
+                </span>
+                <br>
+                <span class="titleOfPost">
+                 {{viewEventData.title}}
+                </span>
+                <br>
+                <span class = "author">
+                  - {{viewEventData.u_fname}} {{viewEventData.u_lname}}, {{viewEventData.event_created_date}} {{viewEventData.event_created_time}}
+                </span>
+
+              </div>
+
+<!--CONTENT -->
+<span class = "descCon">{{viewEventData.description}}</span><br><br>
+
+
+<!-- IMAGES -->
+{{#if imgArr}}
+<div class="row">
+
+
+    {{#each imgArr}}
+      <div class="imagesSlid col-lg-6 col-md-6 col-sm-12">
+     <a href = "/public/user_crucial_data/event_images/{{this}}" target="_blank"> <img src="/public/user_crucial_data/event_images/{{this}}" class="images"  alt="Event Image" title="CLICK TO OPEN IMAGE" style="color: white;"> </a>
+      </div>
+    {{/each}}
+    
+  
+    </div>
+{{/if}}
+
+<!-- LOCATION -->   
+{{#if viewEventData.manual_location}}
+<span class = "descCon"><i class="fas fa-map-marker-alt events" title = "Location"></i> {{viewEventData.manual_location}} </span> <br>
+{{/if}}
+<span class = "descCon" ><i class="far fa-calendar-alt events" title = "Date and Time"></i> {{viewEventData.event_date}} at {{viewEventData.event_time}}</span><br>
+<!-- LINKS -->   
+
+{{#if viewEventData.link}}
+<span class ="descCon"><i class="fas fa-link events" title = "Link"></i> <a href="{{viewEventData.link}}" target="_blank">{{viewEventData.link}}</a> </span> <br>
+{{/if}}
+
+
+    <!-- REACTIONS -->
+<span class ="descCon"><i class="fas fa-eye events" title = "VIEWS"></i> {{viewEventData.views.length}} Views  </span> <br>
+ <span class ="descCon"><i class="fas fa-users people events" title = "PEOPLE ATTENDING"></i> {{viewEventData.users_attending.length}} / {{viewEventData.max_limit}} Attending </span> <br> 
+  
+<br><br>
+
+   {{#if findId}}
+    <button class = "button button-block event" onclick="window.location.href = '/viewevent/join/{{viewEventData._id}}';">Leave Event</button>
+    {{else}}
+    <button class = "button button-block event" onclick="window.location.href = '/viewevent/join/{{viewEventData._id}}';">Join</button>
+{{/if}} 
+
+    {{#if error}}
+<span id="err_msg" hidden>{{error}}</span>
+<span id="id_msg" hidden>{{id}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err_msg").innerText;
+  var id = document.getElementById("id_msg").innerText;
+    window.alert(x)
+    window.location.href = '/viewevent/'+id;
+</script>
+{{/if}}	
+</div>
+</div>

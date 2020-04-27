@@ -1,0 +1,52 @@
+<div class="mainContainer">
+
+
+<div class="container">
+    <div class="con">
+        <div class="row">
+<div class="col-lg-8 col-md-12 col-sm-12 col-12  intro">
+		{{!-- <div class="intro"> --}}
+						<div class="intro-title">UNCOVERED<br>MEDIA</div>
+						<div class="intro-des">
+							ADMIN-LOGIN
+						</div>
+						
+			{{!-- </div> --}}
+</div>
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 intro login">
+<br>
+
+    <form id="admin_login_form" method="post" action="/adminlogin">
+    <div class="field-wrap">
+        <input  class = "newButt inp" type="email" id="email" name="email" placeholder="EMAIL"><br>
+    </div>
+    <div class="field-wrap">
+             
+     
+        <input  class = "newButt inp" type="password" id="password" name="password" placeholder="PASSWORD"><br>
+    </div>
+   
+        <button type="submit" class= "button button-block newButt actionButt" value="LOGIN">LOGIN</button>
+    </form>
+
+{{#if error}}
+<span id="err_msg">{{error}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err_msg").innerText;
+    window.alert(x);
+    window.location.href = '/adminlogin';
+</script>
+{{/if}}	
+
+
+
+
+    </div>
+
+
+</div>
+
+
+
+    
+</div>

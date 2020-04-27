@@ -1,0 +1,253 @@
+<div class="mainContainer">
+		<div class="container">
+<div class="con">
+		<div class="row">
+<div class="col-lg-8 col-md-12 col-sm-12 col-12  intro">
+		{{!-- <div class="intro"> --}}
+						<div class="intro-title">UNCOVERED MEDIA</div>
+						<div class="intro-des">
+							Social media platform designed to spread awareness of news, events, and
+							emergencies that you won't find in the Spicy Media industry!
+
+							<div id="glimpse_button" style="margin-top: 20px;">
+										<button type="submit" class="button button-block newButt glimpse" id="peekaboo">Peek-a-boo ;)</button>
+							</div>
+							
+						</div>
+
+						<!-- MODAL PROMPT -->
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+       <span class="close">&times;</span>
+    <iframe width="580" height="320" src="https://www.youtube.com/embed/tiDd9nVLbbA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+						
+			{{!-- </div> --}}
+</div>
+
+
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 intro login">
+	{{!-- <div class = 'intro login'> --}}
+							
+						
+							<div class="form">
+      
+									<ul class="tab-group">
+											<li class="tab active button-block"><a href="#login">Login</a></li>
+									  <li class="tab button-block signUp"><a href="#signup">Sign Up</a></li>
+									
+									</ul>
+
+									
+									<div class="tab-content">
+
+
+											<div id="login">   
+										
+										
+													<form action="/login" id="login_form" method="post">
+													
+													  <div class="field-wrap">
+													  	{{!-- <label for="username">Email <span class="req">*</span></label> --}}
+                            							<input class = "newButt inp" type="email" id ="username" name = "email" required placeholder="Email"> <br>
+													</div>
+													
+													<div class="field-wrap">
+													  	{{!-- <label for="password_login">Password <span class="req">*</span> </label> --}}
+                            							<input class = "newButt inp" type="password" id ="password_login" name ="password" required placeholder="Password">
+													</div>
+{{!-- 													
+													<p class="forgot"><a href="#">Forgot Password?</a></p> --}}
+													<br>
+													<button type="submit" class="button button-block newButt actionButt">Login</button>
+
+													
+													</form>
+										  
+												  </div>
+
+									
+
+									  <div id="signup">   
+									<form method="POST" id="reg_form" action="/registration">
+                  
+                  
+                
+										
+                        <div class="field-wrap">
+												{{!-- <label for="firstname">First Name<span class="req">*</span></label> --}}
+												<input class = "newButt inp" type="text" id="firstname" name="firstname" required placeholder="First Name *"><br>
+										</div>
+
+										<div class="field-wrap">
+											
+												{{!-- <label for="lastname">Last Name<span class="req">*</span></label> --}}
+												<input class = "newButt inp" type="text" id = "lastname" name="lastname" required placeholder="Last Name *"><br>
+										</div>
+										
+										<div class="field-wrap">
+												{{!-- <label for="email">Email<span class="req">*</span></label> --}}
+												<input class = "newButt inp" type="email" id="email" name="email" required placeholder="Email *"><br>
+										</div>
+
+										<div class="field-wrap">
+												{{!-- <label for="phoneno">Phone Number<span class="req">*</span></label> --}}
+												<input class = "newButt inp" type="tel" id="phoneno" name="phoneno" minlength="10" maxlength="10" required placeholder="Phone *"><br>
+										</div>
+
+										<div class="field-wrap">
+												{{!-- <label for="password">Password<span class="req">*</span></label> --}}
+												<input class = "newButt inp" type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" onkeyup="cnf_pass_check()" required placeholder="Password *"><br>
+										</div>
+										
+										<div class="field-wrap">
+												
+												{{!-- <label for="confirm_password">Confirm Pwd<span class="req">*</span></label> --}}
+												<input class = "newButt inp" type="password" id="confirm_password" name="confirmpassword" onkeyup="cnf_pass_check()" required placeholder="Confirm Password *"><br>
+												<label id="err_msg" class="err_msg"></label><br>
+										</div>
+										
+										
+																				<div class="field-wrap">
+												<div class="g-recaptcha" data-sitekey="6Lejp8cUAAAAABOxb6sKE8BzvZtkUHmvlsCoGgYk"></div>
+												<br>
+										</div>
+
+									
+										<div class = "top-row">
+
+												<div class="field-wrap">
+														<input type="submit" value="Submit" class="button button-block newButt actionButt" id="reg_btn"> &nbsp; 
+													</div>
+
+													<div class="field-wrap">
+															<input type="reset" class="button button-block newButt actionButt" value="Reset">
+	
+													</div>
+
+
+										</div>
+
+										
+
+
+
+
+                      </form>
+											
+
+															
+
+			
+										
+										
+										
+										
+
+
+
+									  </div>
+									  
+
+									  
+									</div><!-- tab-content -->
+									
+							  </div> <!-- /form -->
+
+
+
+					{{!-- </div> --}}
+</div>
+
+		</div>
+
+
+
+		
+			
+			
+			
+					
+
+		</div>
+		
+
+		<!--LOGIN/SIGNUP -->
+		
+		
+
+
+
+
+
+
+
+
+
+	</div>
+			
+
+
+	
+	
+
+
+
+
+
+
+{{#if error}}
+<span id="err123_msg">{{error}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err123_msg").innerText;
+  //console.log(x);
+    window.alert(x);
+    window.location.href = '/';
+</script>
+{{/if}}	
+
+{{#if regsucc}}
+<span id="succ_msg" hidden>{{regsucc}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("succ_msg").innerText;
+    window.alert(x);
+    window.location.href = '/';
+</script>
+{{/if}}
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("peekaboo");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>

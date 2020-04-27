@@ -1,0 +1,202 @@
+<div class="mainContainer2">
+
+<!-- SIDEBAR -->
+
+ {{!-- <div class="icon-bar">
+                <a  href="createpost" class="post"><i id = "postDisp"  title = "CREATE A POST" class="far fa-newspaper"></i></a> 
+                <a  href="createevent" id = "event" class="event"><i title = "CREATE AN EVENT"  class="far fa-calendar-alt"></i></a> 
+                <a  href="createpetition" id = "pet" class="petitions"><i title = "CREATE A PETITION"  class="fas fa-pen-nib"></i></a> 
+                <a  href="createemg" id = "emer" class="emer"><i title = "POST EMERGENCY"  class="fas fa-first-aid"></i></a>
+              
+              </div> --}}
+
+<!-- POP-UPS -->
+
+<!-- NAVBAR -->
+
+		<div class="container1 bgPost">
+
+<div class="row">
+<div class="col-lg-4 col-md-12 col-sm-12 col-12 logo">
+	{{!-- <div class="logo"> --}}
+				<span class="logo-title">UNCOVERED MEDIA</span>
+			{{!-- </div> --}}
+</div>
+<div class="col-lg-8 col-md-6 col-sm-12 col-12">
+  		<nav>
+				<ul>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/fastfacts">FAQ</a></li>
+					<li><a href="/profile">Profile</a></li>
+					<li>
+                   
+                          <a href="/logout" onclick="/logout">Logout</a>
+                        
+                       
+                        
+                        </li>
+				</ul>
+			</nav>
+</div>
+
+</div>
+            
+		  
+
+	
+
+		</div>
+
+
+
+
+<div class = "newButt postCon container3 ">
+
+     {{!-- <div class="container7">
+       <div class="row small">
+         <div class="col-lg-4 col-md-4 col-sm-4 col-12 small">
+          <a class="button button-block event faq" href="createevent"><i class="fas fa-plus"></i> Event</a>
+           </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-12 small">
+            		<a class="button button-block petitions faq" href="createpetition"><i class="fas fa-plus"></i> Petition</a>
+         </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-12 small">
+         <a class="button button-block emer faq" href="createemg"><i class="fas fa-plus"></i> Emergency</a>
+         </div>
+       
+       </div>
+</div> --}}
+
+
+  <form method="POST" id="post_form" action="/createpost" enctype="multipart/form-data">
+  {{!-- <hr style = "text-align: center; width: 10%; border: 3px solid #3498db; margin-bottom: 1%;">  --}}
+    <h1 style = "letter-spacing: 5px; margin-bottom: 1%;" class = "posts">  POST A STORY   </h1>
+    {{!-- <hr style = "text-align: center; width: 10%; border: 3px solid #3498db; margin-top: 1%;">  --}}
+   
+    <div class="field-wrap">
+      <br>
+      {{!-- <label for="postTitle">TITLE <span class="req pos">*</span> </label> --}}
+    <input class = "newButt inp2" type="text" id = "postTitle"  name="postTitle" required placeholder="TITLE *">
+    </div>
+    <div class="field-wrap">
+       {{!-- <label for="description">DESCRIPTION  <span class="req pos">*</span></label> --}}
+    <textarea class = "newButt inp3" name="description" id="description" rows ="10" cols = "10" required  placeholder="DESCRIPTION *"></textarea>
+    </div>
+    
+    <div class="field-wrap">
+      {{!-- <label for="tags">TAGS</label> --}}
+    <input class = "newButt inp2"type="text" name="tags" id="tags" placeholder="TAGS">
+    </div>
+    
+    
+      <div class="field-wrap">
+
+
+        <div class="newButt inp2">
+          <div class="pAnon">
+            POST ANONYMOUSLY?
+          </div>
+          <div class="pOption">
+             <select name="postType" class = "newButt" id="postType">
+            <option value="no">NO</option>
+            <option value="yes">YES</option>
+          </select>
+          </div>
+
+        </div>
+        {{!-- <label for="postType">POST ANONYMOUSLY? </label> 
+     
+
+          <select name="postType" class = "newButt" id="postType">
+            <option value="no">NO</option>
+            <option value="yes">YES</option>
+          </select> --}}
+        
+     
+    
+    </div>
+    <div class="field-wrap">
+          {{!-- <label for="autocomplete">LOCATION</label> --}}
+    <input type="text" class ="desc newButt inp2" name="address" id="autocomplete" placeholder="LOCATION"> 
+     <a  style = "color: #282828; letter-spacing: 2px; font-size: 12px;  font-family: 'Montserrat', sans-serif; padding-left: 1.0rem;"  onclick="locatorButtonPressed()">CLICK HERE TO USE CURRENT LOCATION</a> <br>
+     <span id="msg"></span> 
+      
+ 
+     
+    </div>
+ 
+    <div class="field-wrap">
+      {{!-- <label for="pic">UPLOAD MEDIA (IF ANY)</label> --}}
+      <div class="newButt inp2">
+           <div class="pAnon">
+        UPLOAD MEDIA (IF ANY)
+      </div>
+      <div class="pOption1">
+         <input type="file" class = "newButt" id="pic" name="image" multiple>
+      </div>
+      </div>
+     
+   
+    <span  style = "color: #282828; letter-spacing: 2px; font-size: 12px;  font-family: 'Montserrat', sans-serif; padding-left: 1.0rem;"   class = "loc">(UPTO 4 MB )</span>
+    </div>
+    
+   
+    
+
+    
+   <div class = "top-row">
+
+												<div class="field-wrap">
+														<input type="submit" value="POST" class="button button-block post"> &nbsp; 
+													</div>
+
+													<div class="field-wrap">
+															<input type="reset" class="newButt button button-block" value="RESET">
+	
+													</div>
+
+
+    
+										</div>
+   
+   
+    <input type="text" id="latitude" name="loc_lat" hidden>
+    <input type="text" id="longitude" name="loc_lang" hidden>
+    
+    
+  
+    
+</form>
+
+{{#if error}}
+<span id="err_msg" hidden>{{error}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("err_msg").innerText;
+    window.alert(x)
+    window.location.href = '/createpost';
+</script>
+{{/if}}	
+
+{{#if postSucc}}
+<span id="succ_msg" hidden>{{postSucc}}</span>
+<script  type="text/javascript">
+  var x = document.getElementById("succ_msg").innerText;
+    window.alert(x)
+    window.location.href = '/home';
+</script>
+{{/if}}
+
+  
+</div>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</div>
