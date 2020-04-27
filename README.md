@@ -1,7 +1,3 @@
-# INTRODUCTION
-
-Uncovered Media is all about bringing out the real news, events, emergencies happening around the user which go almost unnoticed amidst the propaganda news agencies keep shelling out every day. Using our application, a user will be able to create a post: an incident which he/she feels the world should know, be it positive or negative, an event like blood donation camp, winter clothes collection, or anything relevant, emergencies like floods, epidemics etc. Basically, we aim to bring out the one environmentalist suppressed by limelight a 16-year-old influencer is getting, someone who teaches coding for free on weekends to underprivileged gets lost among the weekend parties happening downtown.
-
 # INSTALLATION
 The application is developed to run in a Node.JS environment. 
 After Unzipping the file, install the following dependencies using the npm install command. 
