@@ -98,7 +98,7 @@ function getUserAddressBy(lat, long) {
             setAddressToInputField(address.results[0].formatted_address)
         }
     };
-    xhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&key=AIzaSyCf2jnt53nvDSmTshnibDoYnmF6Z0st72Y", true);
+    xhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&key=YOUR_API_KEY", true);
     xhttp.send();
 }
 
