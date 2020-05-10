@@ -3,23 +3,23 @@ The application is developed to run in a Node.JS environment.
 After Unzipping the file, install the following dependencies using the npm install command. 
 Make sure that the package.json file is in present in the directory. Else, you will have to install each dependency individually. 
 The following dependencies have been used:
-brcypt.js, cookie-parser,ember-truth-helpers, express, express-handlebars, express-session, formidable, fs, handlebars, handlebars-helpers, mongodb, request.
+`brcypt.js, cookie-parser,ember-truth-helpers, express, express-handlebars, express-session, formidable, fs, handlebars, handlebars-helpers, mongodb, request`.
 
 You could simply use the following command to install all dependencies: 
-npm install 
+`npm install` 
 
 For seeding the database with some data, use the following command:
-node tasks/seed.js
+`node tasks/seed.js`
 
 To run the application, use the following command:
-npm start
+`npm start`
 
 In order to see the images, you have to define your local project folder path. Please follow the instruction given below,
-In routes/mainroutes.js, we have defined a variable as shown below. Please enter your project path till your project folder.
+In `routes/mainroutes.js`, we have defined a variable as shown below. Please enter your project path till your project folder.
 
 For eg:
-const img_dir_name = "C:/Users/Shubham/Desktop/Uncovered_Media";
-Here, Uncovered Media is the main project folder where entire project is located. Please don’t add extra “/” after project folder name. 
+`const img_dir_name = "C:/Users/Shubham/Desktop/Uncovered_Media";`
+Here, Uncovered Media is the main project folder where entire project is located. Please don’t add extra `/` after project folder name. 
 Note: Our web application is best suited to run on Google Chrome
 
 # USAGE
