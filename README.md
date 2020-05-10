@@ -25,9 +25,9 @@ Note: Our web application is best suited to run on Google Chrome
 # USAGE
 We have provided some sample users in the database. You can login using the one provided below
 	
-Email: 	r1@gmail.com 
+	Email: 	r1@gmail.com 
 
-Password: Rohan123
+	Password: Rohan123
 
 You could create a new account as well in the sign up page.
 One Logged in, You can see the home page where there are variety of options presented to you.
@@ -45,13 +45,13 @@ For Complete Usage, please refer the video which explains the entire workflow
 # SUPPORT
 For Support, You can reach out to anyone of the team members:
 
-Rohan Shah- rshah78@stevens.edu 
+	Rohan Shah- rshah78@stevens.edu 
 
-Viraj Rokade- vrokade@stevens.edu
+	Viraj Rokade- vrokade@stevens.edu
 
-Shubham Rane- srane3@stevens.edu
+	Shubham Rane- srane3@stevens.edu
 
-Badal Thosani- bthosani@stevens.edu
+	Badal Thosani- bthosani@stevens.edu
 
 
 
